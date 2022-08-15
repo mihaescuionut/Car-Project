@@ -4,9 +4,11 @@ import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-export default ({ id }) => {
+export default () => {
 
-   let {carId} = useParams();
+   let { id } = useParams();
+   console.log(useParams());
+   console.log(id);
    let navigate = useNavigate();
 
    const[mark, setMark] = useState();
@@ -38,11 +40,16 @@ export default ({ id }) => {
       year: year,
       favourite: false
     };
+    console.log(car);
 
     let api = new Api();
-    let result = api.editCar(carId, car);
+    api.editCar(id, car);
     navigate('/');
     
+  }
+
+  let handleNav=()=>{
+    navigate('/');
   }
 
 
@@ -78,13 +85,13 @@ export default ({ id }) => {
             <div className="flex flex-col mb-4 space-y-3 text-center md:text-left">
               <div className="flex max-w font-bold gap-3">
                 <input
-                  type="text"
+                  type="number"
                   class="border-2 border-purple-500 w-1/2 h-16 text-center font-bold rounded-lg placeholder-purple-500 focus:outline-none shadow-lg shadow-purple-400 hover:-translate-y-1 duration-150"
                   placeholder="Price"
                   id="price_input"
                 />
                 <input
-                  type="text"
+                  type="number"
                   class="border-2 border-purple-500 w-1/2 h-16 text-center font-bold rounded-lg placeholder-purple-500 focus:outline-none shadow-lg shadow-purple-400 hover:-translate-y-1 duration-150"
                   placeholder="Year"
                   id="year_input"
@@ -98,6 +105,7 @@ export default ({ id }) => {
               </button>
 
               <button
+                onClick={handleNav}
                 id="delete_button"
                 class="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-purple-500 rounded-lg  shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-yellow-400 hover:-translate-y-0.5 transition-all duration-150"
               >

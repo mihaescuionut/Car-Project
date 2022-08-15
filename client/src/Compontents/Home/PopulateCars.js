@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
+
 
 export default ({ car }) => {
-  let {carId} = useParams();
+
+  useEffect(()=>{
+    Aos.init({duration: 2000})
+  }, []);
 
   return (
     <div className="flex mx-auto items-center justify-center h-1/2 bg-slade-1000 md:mt-10">
-      <div className="flex flex-col p-6 m-3 space-y-10 bg-white h-fit rounded-2xl shadow-lg hover:-translate-y-1 transition-all duration-150 hover:shadow-purple-500 md:flex-row md:space-y-0 md:space-x-10 md:m-0 md:p-16" id={car.id}>
+      <div className="flex flex-col p-6 m-3 space-y-10 bg-white h-fit rounded-2xl shadow-lg hover:-translate-y-1 transition-all duration-150 hover:shadow-purple-500 md:flex-row md:space-y-0 md:space-x-10 md:m-0 md:p-16" id={car.id} data-aos="zoom-in">
         <div className="flex flex-col space-y-6">
           <div className="flex flex-col mb-4 space-y-3 text-center md:text-left">
             <div>
@@ -44,10 +50,10 @@ export default ({ car }) => {
             </div>
 
             <div class="flex flex-row space-x-4 justify-center items-center">
-              <button id="edit_button" class="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-yellow-200 rounded-lg shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-purple-500 hover:-translate-y-0.5 transition-all duration-150">
-                <Link to={`/edit/${car.id}`}></Link>
-                <i class="fa-solid fa-pen"></i>
-              </button>
+              <div id="edit_button" class="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-yellow-200 rounded-lg shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-purple-500 hover:-translate-y-0.5 transition-all duration-150">
+              <Link to={`/edit/${car.id}`}><i class="fa-solid fa-pen"></i></Link>
+                
+              </div>
 
               <button id="delete_button" class="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-purple-500 rounded-lg  shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-yellow-400 hover:-translate-y-0.5 transition-all duration-150">
                 <i class="fa-solid fa-trash-can"></i>
@@ -57,5 +63,7 @@ export default ({ car }) => {
         </div>
       </div>
     </div>
+  
+  
   );
 };

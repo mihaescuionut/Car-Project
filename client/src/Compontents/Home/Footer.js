@@ -3,8 +3,15 @@ import facebook from "../../images/icon-facebook.svg";
 import twitter from "../../images/icon-twitter.svg";
 import pinterest from "../../images/icon-pinterest.svg";
 import instagram from "../../images/icon-instagram.svg";
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 export default ()=>{
+
+  useEffect(()=>{
+    Aos.init({duration: 2000})
+  }, []);
 
     return (
 
@@ -45,7 +52,7 @@ export default ()=>{
             </div>
     
             <div className="flex flex-col items-start justify-between space-y-4 text-gray-500">
-              <div className="flex items-center justify-center mx-auto space-x-4 md:justify-end md:mx-0">
+              <div className="flex items-center justify-center mx-auto space-x-4 md:justify-end md:mx-0" data-aos="zoom-in">
                 <div className="h-8 group">
                   <a href="#">
                     <img src={facebook} alt="" className="h-6 hover:-translate-y-0.5 transition-all duration-150" />

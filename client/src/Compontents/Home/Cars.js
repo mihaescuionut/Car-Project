@@ -4,50 +4,43 @@ import { useState, useEffect } from "react";
 import Api from "../../api";
 import Spinner from "react-bootstrap/Spinner";
 import { Link, useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
 export default () => {
   const [cars, setCars] = useState([]);
-  const [filters, setFilters] = useState([]);
+
+  const [isFav, setFav] = useState(false);
+
   const [fav, setFavourites] = useState([]);
+
   let navigate = useNavigate();
-  const {carId} = useParams();
 
   let fetchCars = async () => {
     let api = new Api();
-    let allCars = await api.getAllCars();
-    setCars(allCars);
-    setFilters(allCars);
+    let all = await api.getAllCars();
+    setCars(all);
+    console.log(all);
   };
-  let fetchFavourites = async ()=>{
+  let fetchFavourites = async () => {
     let api = new Api();
     let favourites = await api.getAllFavourites();
     setFavourites(favourites);
-}
+  };
+
   useEffect(() => {
     fetchCars();
     fetchFavourites();
   }, []);
-  
-  let searchCar = (e)=>{
-    let el = e.target;
-    setCars(
-      filters.filter((e) =>
-        e.mark.toLowerCase().includes(el.value.toLowerCase())
-      ))
-  }
 
-  let showFavourites = (e)=>{
+  let showFavourites = (e) => {
     let el = e.target;
-    if(el.value == "all"){
-      fetchCars();
-    }else if(el.value == "favourites"){
-      setCars(
-        filters.filter((e)=> e.favourite == true)
-      )
+    if (el.value == "all") {
+      setFav(false);
+    } else if (el.value == "favourites") {
+      setFav(true);
     }
-  }
-  
+
+    console.log(isFav);
+  };
 
   let deleteCar = async (e) => {
     let el = e.target;
@@ -58,30 +51,33 @@ export default () => {
       let api = new Api();
       api.deleteCar(id);
       window.location.reload();
-    }else if(el.id == "fav_button"){
+    } else if (el.id == "fav_button") {
       let id = el.parentNode.parentNode.parentNode.parentNode.parentNode.id;
       console.log(id);
       let api = new Api();
       let fav = await api.addToFav(id);
     }
-    
   };
-
-
 
   return (
     <section id="cars_section" className="bg-cyan-50  min-h-screen">
       <div class="container max-w-6xl mx-auto my-32 px-6 text-gray-900 pt-5 md:px-0">
-        <div class="flex justify-around mb-20" onChange={searchCar}>
+        <div class="flex justify-around mb-20">
           <h2 class="animate-bounce text-4xl text-center font-alata uppercase md:text-left md:text-5xl">
             <i class="fa-solid fa-car"></i>
           </h2>
 
-            <select class="p-3 w-1/5 rounded-lg text-center text-yellow-600 border-2 border-yellow-400 focus:outline-none" id="cars" onChange={showFavourites}>
-              <option selected="value"disabled>View</option>
-              <option value="all">All Cars</option>
-              <option value="favourites">Favourites</option>
-            </select>
+          <select
+            class="p-3 w-1/5 rounded-lg text-center text-yellow-600 border-2 border-yellow-400 focus:outline-none"
+            id="cars"
+            onChange={showFavourites}
+          >
+            <option selected="value" disabled>
+              View
+            </option>
+            <option value="all">All Cars</option>
+            <option value="favourites">Favourites</option>
+          </select>
 
           <input
             type="text"
@@ -101,7 +97,11 @@ export default () => {
             <span className="visually-hidden">Loading...</span>
           </Spinner>
         ) : (
-          cars.map((e) => <PopulateCars car={e} />)
+          <>
+            {!isFav
+              ? cars.map((e) => <PopulateCars car={e} />)
+              : fav.map((e) => <PopulateCars car={e} />)}
+          </>
         )}
       </div>
     </section>

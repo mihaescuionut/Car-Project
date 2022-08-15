@@ -8,6 +8,7 @@ const router = express.Router();
 router.get("/allCars", async (req, res, next) => {
   try {
     let allCars = await db.models.Car.findAll();
+    console.log(allCars);
     res.status(200).json(allCars);
   } catch (e) {
     throw new Error(e);
@@ -79,7 +80,7 @@ router.put('/editCar/:id', async(req, res, next)=>{
             obj.favourite = car.favourite;
           }
           await obj.save();
-          res.status(200).json(id);
+          res.status(200).json(obj);
       }
   }catch(err){
           next(err);

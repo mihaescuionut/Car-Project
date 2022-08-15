@@ -1,9 +1,18 @@
 import React from "react";
 import interactive from '../../images/img-interactive5.webp';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
+import Aos from "aos";
+
 
 
 
 export default()=>{
+
+  useEffect(()=>{
+    Aos.init({duration: 2000})
+  }, []);
+
 
     return(
 
@@ -11,7 +20,7 @@ export default()=>{
 
         <div className="relative cnt flex flex-col max-w-6xl mx-auto my-32 px-6 text-gray-900 md:flex-row md:px-0">
 
-          <img src={interactive} alt="" ></img>
+          <img src={interactive} alt="" data-aos="fade-right"></img>
 
           <div
           className="top-48 pr-0 bg-white md:absolute md:right-0 md:py-20 md:pl-20 rounded-lg"
