@@ -9,14 +9,15 @@ export default () => {
     Aos.init({duration: 2000})
   }, []);
 
-  let navToggle = (e)=>{
-    let el = e.target;
+  let navToggle = ()=>{
+
     let menu = document.getElementById('menu');
-    if(el.id == "menu-btn"){
-      el.classList.toggle('open');
+    let menuBtn = document.getElementById('menu-btn');
+
+      menuBtn.classList.toggle('open');
       menu.classList.toggle('flex');
       menu.classList.toggle('hidden');
-    }
+
   }
 
   return (
@@ -50,8 +51,9 @@ export default () => {
               <div className="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
             </div>
           </div>
-          <div className="md:hidden" onClick={navToggle}>
+          <div className="md:hidden" >
             <button
+              onClick={navToggle} 
               id="menu-btn"
               type="button"
               className="z-40 block hamburger md:hidden focus:outline-none"

@@ -6,20 +6,32 @@ import Spinner from "react-bootstrap/Spinner";
 import { Link, useNavigate } from "react-router-dom";
 
 export default () => {
-  const [cars, setCars] = useState([]);
-
-  const [isFav, setFav] = useState(false);
-
-  const [fav, setFavourites] = useState([]);
 
   let navigate = useNavigate();
 
+  const [cars, setCars] = useState([]);
+  const [searchCars, setSearchCars] = useState([]);
+  const [isFav, setFav] = useState(false);
+  const [fav, setFavourites] = useState([]);
+  const [search, setSearch] = useState();
+  
+
+  let handleSearch=(e)=>{
+    let obj = e.target;
+    setCars(
+      searchCars.filter((e)=>
+        e.mark.toString().toLowerCase().includes(obj.value.toString().toLowerCase())
+      )
+    )
+    
+  }
   let fetchCars = async () => {
     let api = new Api();
     let all = await api.getAllCars();
     setCars(all);
-    console.log(all);
+    setSearchCars(all);
   };
+
   let fetchFavourites = async () => {
     let api = new Api();
     let favourites = await api.getAllFavourites();
@@ -44,18 +56,19 @@ export default () => {
 
   let deleteCar = async (e) => {
     let el = e.target;
-    console.log(el);
-    if (el.id == "delete_button") {
+    console.log(el.id);
+    if (el.id == "delete_car") {
       let id = el.parentNode.parentNode.parentNode.parentNode.id;
       console.log(id);
       let api = new Api();
-      api.deleteCar(id);
+      await api.deleteCar(id);
       window.location.reload();
     } else if (el.id == "fav_button") {
       let id = el.parentNode.parentNode.parentNode.parentNode.parentNode.id;
       console.log(id);
       let api = new Api();
       let fav = await api.addToFav(id);
+      window.location.reload();
     }
   };
 
@@ -79,7 +92,7 @@ export default () => {
             <option value="favourites">Favourites</option>
           </select>
 
-          <input
+          <input onChange={handleSearch}
             type="text"
             class="border-2 border-purple-500 w-60 text-center rounded-lg placeholder-purple-500 focus:outline-none"
             placeholder="Search for a car here"

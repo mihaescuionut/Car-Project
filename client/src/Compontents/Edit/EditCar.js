@@ -43,7 +43,7 @@ export default () => {
     console.log(car);
 
     let api = new Api();
-    api.editCar(id, car);
+    await api.editCar(id, car);
     navigate('/');
     
   }

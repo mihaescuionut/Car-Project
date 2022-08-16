@@ -36,27 +36,27 @@ export default ({ car }) => {
               </p>
             </div>
 
-            <div class="group">
-              <button class="w-full bg-purple-800 text-white border-b-8 border-b-purple-800 rounded-lg transition-all duration-150 group-hover:border-t-8 group-hover:border-b-0 group-hover:bg-purple-600 group-hover:border-t-purple-800 group-hover:shadow-lg" >
-                <div class="px-8 py-4 duration-150s bg-purple-500 rounded-lg group-hover:bg-purple-600" id="fav_button">
-                  <i class="fa-solid fa-heart"></i>
+            <div className="group">
+              <button className="w-full bg-purple-800 text-white border-b-8 border-b-purple-800 rounded-lg transition-all duration-150 group-hover:border-t-8 group-hover:border-b-0 group-hover:bg-purple-600 group-hover:border-t-purple-800 group-hover:shadow-lg" >
+                <div className="px-8 py-4 duration-150s bg-purple-500 rounded-lg group-hover:bg-purple-600" id="fav_button">
+                  <i className="fa-solid fa-heart"></i>
                 </div>
               </button>
             </div>
 
-            <div class="flex items-center space-x-3 group">
-              <div class="w-3 h-3 bg-green-400 rounded-full group-hover:animate-ping"></div>
-              <div class="text-sm">50+ in stock</div>
+            <div className="flex items-center space-x-3 group">
+              <div className="w-3 h-3 bg-green-400 rounded-full group-hover:animate-ping"></div>
+              <div className="text-sm">50+ in stock</div>
             </div>
 
-            <div class="flex flex-row space-x-4 justify-center items-center">
-              <div id="edit_button" class="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-yellow-200 rounded-lg shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-purple-500 hover:-translate-y-0.5 transition-all duration-150">
-              <Link to={`/edit/${car.id}`}><i class="fa-solid fa-pen"></i></Link>
+            <div className="flex flex-row space-x-4 justify-center items-center">
+              <div id="edit_button" className="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-yellow-200 rounded-lg shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-purple-500 hover:-translate-y-0.5 transition-all duration-150">
+              <Link to={`/edit/${car.id}`}><i className="fa-solid fa-pen"></i></Link>
                 
               </div>
 
-              <button id="delete_button" class="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-purple-500 rounded-lg  shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-yellow-400 hover:-translate-y-0.5 transition-all duration-150">
-                <i class="fa-solid fa-trash-can"></i>
+              <button id="delete_car" className="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-purple-500 rounded-lg  shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-yellow-400 hover:-translate-y-0.5 transition-all duration-150">
+                <i className="fa-solid fa-trash-can" id="delete_car"></i>
               </button>
             </div>
           </div>
