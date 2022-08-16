@@ -59,7 +59,7 @@ export default () => {
     let el = e.target;
     console.log(el.id);
     if (el.id == "delete_car") {
-      let id = el.parentNode.parentNode.parentNode.parentNode.id;
+      let id = el.parentNode.parentNode.parentNode.parentNode.parentNode.id;
       let api = new Api();
       await api.deleteCar(id);
       window.location.reload();

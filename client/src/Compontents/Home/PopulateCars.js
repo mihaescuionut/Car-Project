@@ -4,9 +4,11 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
 import { FaTrashAlt } from 'react-icons/fa';
+import Api from "../../api";
 
 
 export default ({ car }) => {
+
 
   useEffect(()=>{
     Aos.init({duration: 2000})
@@ -56,8 +58,8 @@ export default ({ car }) => {
                 
               </div>
 
-              <button id="delete_car" className="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-purple-500 rounded-lg  shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-yellow-400 hover:-translate-y-0.5 transition-all duration-150">
-                <FaTrashAlt/>
+              <button className="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-purple-500 rounded-lg cursor-default shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-yellow-400 hover:-translate-y-0.5 transition-all duration-150">
+                <FaTrashAlt id="delete_car" className="cursor-pointer"></FaTrashAlt>
               </button>
             </div>
           </div>
