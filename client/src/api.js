@@ -1,7 +1,7 @@
 export default class Api{
 
     api(path,method='GET',body=null,requiresAuth=false,credentials=null){
-        const url=path;
+        const url="https://car-app-ionut.herokuapp.com/"+path;
         const options={
             method,
             headers: {
