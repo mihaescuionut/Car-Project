@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+import { FaTrashAlt } from 'react-icons/fa';
 
 
 export default ({ car }) => {
@@ -56,7 +57,7 @@ export default ({ car }) => {
               </div>
 
               <button id="delete_car" className="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-purple-500 rounded-lg  shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-yellow-400 hover:-translate-y-0.5 transition-all duration-150">
-                <i className="fa-solid fa-trash-can" id="delete_car"></i>
+                <FaTrashAlt/>
               </button>
             </div>
           </div>

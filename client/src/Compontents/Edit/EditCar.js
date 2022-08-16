@@ -70,13 +70,13 @@ export default () => {
             <div className="flex w-full font-bold gap-3">
               <input
                 type="text"
-                class="border-2 border-purple-500 w-1/2 h-16 text-center rounded-lg placeholder-purple-500 focus:outline-none shadow-lg shadow-purple-400 hover:-translate-y-1 duration-150"
+                className="border-2 border-purple-500 w-1/2 h-16 text-center rounded-lg placeholder-purple-500 focus:outline-none shadow-lg shadow-purple-400 hover:-translate-y-1 duration-150"
                 placeholder="Mark"
                 id="mark_input"
               />
               <input
                 type="text"
-                class="border-2 border-purple-500 w-1/2 h-16 text-center rounded-lg placeholder-purple-500 focus:outline-none shadow-lg shadow-purple-400 hover:-translate-y-1 duration-150"
+                className="border-2 border-purple-500 w-1/2 h-16 text-center rounded-lg placeholder-purple-500 focus:outline-none shadow-lg shadow-purple-400 hover:-translate-y-1 duration-150"
                 placeholder="Model"
                 id="model_input"
               />
@@ -86,30 +86,30 @@ export default () => {
               <div className="flex max-w font-bold gap-3">
                 <input
                   type="number"
-                  class="border-2 border-purple-500 w-1/2 h-16 text-center font-bold rounded-lg placeholder-purple-500 focus:outline-none shadow-lg shadow-purple-400 hover:-translate-y-1 duration-150"
+                  className="border-2 border-purple-500 w-1/2 h-16 text-center font-bold rounded-lg placeholder-purple-500 focus:outline-none shadow-lg shadow-purple-400 hover:-translate-y-1 duration-150"
                   placeholder="Price"
                   id="price_input"
                 />
                 <input
                   type="number"
-                  class="border-2 border-purple-500 w-1/2 h-16 text-center font-bold rounded-lg placeholder-purple-500 focus:outline-none shadow-lg shadow-purple-400 hover:-translate-y-1 duration-150"
+                  className="border-2 border-purple-500 w-1/2 h-16 text-center font-bold rounded-lg placeholder-purple-500 focus:outline-none shadow-lg shadow-purple-400 hover:-translate-y-1 duration-150"
                   placeholder="Year"
                   id="year_input"
                 />
               </div>
             </div>
 
-            <div class="flex flex-row space-x-4 justify-center items-center">
-              <button onClick={editCar} class="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-yellow-200 rounded-lg shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-purple-500 hover:-translate-y-0.5 transition-all duration-150">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
+            <div className="flex flex-row space-x-4 justify-center items-center">
+              <button onClick={editCar} className="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-yellow-200 rounded-lg shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-purple-500 hover:-translate-y-0.5 transition-all duration-150">
+                <i className="fa-solid fa-cloud-arrow-up"></i>
               </button>
 
               <button
                 onClick={handleNav}
                 id="delete_button"
-                class="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-purple-500 rounded-lg  shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-yellow-400 hover:-translate-y-0.5 transition-all duration-150"
+                className="flex items-center justify-center w-1/2 py-3 px-5 space-x-3 border-2 border-purple-500 rounded-lg  shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:shadow-yellow-400 hover:-translate-y-0.5 transition-all duration-150"
               >
-                <i class="fa-solid fa-xmark"></i>
+                <i className="fa-solid fa-xmark"></i>
               </button>
             </div>
           </div>

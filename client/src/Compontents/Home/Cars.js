@@ -5,6 +5,7 @@ import Api from "../../api";
 import Spinner from "react-bootstrap/Spinner";
 import { Link, useNavigate } from "react-router-dom";
 
+
 export default () => {
 
   let navigate = useNavigate();
@@ -54,18 +55,16 @@ export default () => {
     console.log(isFav);
   };
 
-  let deleteCar = async (e) => {
+  let handleDeleteAndFav = async (e) => {
     let el = e.target;
     console.log(el.id);
     if (el.id == "delete_car") {
       let id = el.parentNode.parentNode.parentNode.parentNode.id;
-      console.log(id);
       let api = new Api();
       await api.deleteCar(id);
       window.location.reload();
     } else if (el.id == "fav_button") {
       let id = el.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-      console.log(id);
       let api = new Api();
       let fav = await api.addToFav(id);
       window.location.reload();
@@ -74,14 +73,14 @@ export default () => {
 
   return (
     <section id="cars_section" className="bg-cyan-50  min-h-screen">
-      <div class="container max-w-6xl mx-auto my-32 px-6 text-gray-900 pt-5 md:px-0">
-        <div class="flex justify-around mb-20">
-          <h2 class="animate-bounce text-4xl text-center font-alata uppercase md:text-left md:text-5xl">
-            <i class="fa-solid fa-car"></i>
+      <div className="container max-w-6xl mx-auto my-32 px-6 text-gray-900 pt-5 md:px-0">
+        <div className="flex justify-around mb-20">
+          <h2 className="animate-bounce text-4xl text-center font-alata uppercase md:text-left md:text-5xl">
+            <i className="fa-solid fa-car"></i>
           </h2>
 
           <select
-            class="p-3 w-1/5 rounded-lg text-center text-yellow-600 border-2 border-yellow-400 focus:outline-none"
+            className="p-3 w-1/5 rounded-lg text-center text-yellow-600 border-2 border-yellow-400 focus:outline-none"
             id="cars"
             onChange={showFavourites}
           >
@@ -94,7 +93,7 @@ export default () => {
 
           <input onChange={handleSearch}
             type="text"
-            class="border-2 border-purple-500 w-60 text-center rounded-lg placeholder-purple-500 focus:outline-none"
+            className="border-2 border-purple-500 w-60 text-center rounded-lg placeholder-purple-500 focus:outline-none"
             placeholder="Search for a car here"
             id="search-input"
           />
@@ -103,7 +102,7 @@ export default () => {
 
       <div
         className="flex flex-col w-full md:grid md:grid-cols-3 md:gap-3"
-        onClick={deleteCar}
+        onClick={handleDeleteAndFav}
       >
         {cars.length == 0 ? (
           <Spinner animation="border" role="status">
