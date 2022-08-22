@@ -16,7 +16,7 @@ export default ({ car }) => {
 
   return (
     <div className="flex mx-auto items-center justify-center h-1/2 bg-slade-1000 md:mt-10">
-      <div className="flex flex-col p-6 m-3 space-y-10 bg-white h-fit rounded-2xl shadow-lg hover:-translate-y-1 transition-all duration-150 hover:shadow-purple-500 md:flex-row md:space-y-0 md:space-x-10 md:m-0 md:p-16" id={car.id} data-aos="zoom-in">
+      <div className="carid flex flex-col p-6 m-3 space-y-10 bg-white h-fit rounded-2xl shadow-lg hover:-translate-y-1 transition-all duration-150 hover:shadow-purple-500 md:flex-row md:space-y-0 md:space-x-10 md:m-0 md:p-16" id={car.id} data-aos="zoom-in">
         <div className="flex flex-col space-y-6">
           <div className="flex flex-col mb-4 space-y-3 text-center md:text-left">
             <div>

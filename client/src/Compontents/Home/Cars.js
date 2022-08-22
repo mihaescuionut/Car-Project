@@ -59,7 +59,8 @@ export default () => {
     let el = e.target;
     console.log(el.id);
     if (el.id == "delete_car") {
-      let id = el.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+      let car = document.querySelector('.carid');
+      let id = car.id;
       let api = new Api();
       await api.deleteCar(id);
       window.location.reload();
@@ -74,13 +75,14 @@ export default () => {
   return (
     <section id="cars_section" className="bg-cyan-50  min-h-screen">
       <div className="container max-w-6xl mx-auto my-32 px-6 text-gray-900 pt-5 md:px-0">
-        <div className="flex justify-around mb-20">
+        <div className="flex flex-col justify-center items-center gap-8 md:flex-row md:justify-between md:gap-0 md:mb-20">
+
           <h2 className="animate-bounce text-4xl text-center font-alata uppercase md:text-left md:text-5xl">
             <i className="fa-solid fa-car"></i>
           </h2>
 
           <select
-            className="p-3 w-1/5 rounded-lg text-center text-yellow-600 border-2 border-yellow-400 focus:outline-none"
+            className="p-3 w-1/2  rounded-lg text-center text-yellow-600 border-2 border-yellow-400 focus:outline-none md:w-1/5"
             id="cars"
             onChange={showFavourites}
           >
